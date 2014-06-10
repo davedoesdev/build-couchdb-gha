@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-cd "$HOME"
 git clone git://github.com/jhs/build-couchdb.git
 cd build-couchdb
 git submodule init

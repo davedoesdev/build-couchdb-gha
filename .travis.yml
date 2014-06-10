@@ -1,7 +1,15 @@
 language: c
 install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y help2man make gcc zlib1g-dev libssl-dev rake texinfo flex dctrl-tools libsctp-dev libxslt1-dev libcap2-bin ed
-  - git config --global user.email 'dave@davedoesdev.com'
-  - git config --global user.name 'David Halls'
+- sudo apt-get update -qq
+- sudo apt-get install -y help2man make gcc zlib1g-dev libssl-dev rake texinfo flex dctrl-tools libsctp-dev libxslt1-dev libcap2-bin ed
+- git config --global user.email 'dave@davedoesdev.com'
+- git config --global user.name 'David Halls'
 script: couchdb/build_couchdb.sh
+after_script: tar zcf build-couchdb.tgz build-couchdb
+deploy:
+  provider: releases
+  api_key:
+    secure: TflmoffqBTzzQJW8Rz116tGSMX1ZdPlPkz7PH6VIXToPnTNrmsIpkU5S5Glv4o070hozLx5x787aMIB/WmpOb3KavRcsbKJVXEUK7BKCpMAD/lVesU/uLX3LFicIofu7d+B1ZmrYFX8JyPXx2CpK36vDlPy9AER4qmKmQHLkoQc=
+  file: build-couchdb.tgz
+  on:
+    repo: davedoesdev/build-couchdb-travis
