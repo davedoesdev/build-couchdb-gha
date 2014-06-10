@@ -11,5 +11,8 @@ deploy:
   api_key:
     secure: TflmoffqBTzzQJW8Rz116tGSMX1ZdPlPkz7PH6VIXToPnTNrmsIpkU5S5Glv4o070hozLx5x787aMIB/WmpOb3KavRcsbKJVXEUK7BKCpMAD/lVesU/uLX3LFicIofu7d+B1ZmrYFX8JyPXx2CpK36vDlPy9AER4qmKmQHLkoQc=
   file: build-couchdb.tgz
+  skip_cleanup: true
   on:
     repo: davedoesdev/build-couchdb-travis
+    tags: true
+    all_branches: true
