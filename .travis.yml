@@ -1,0 +1,7 @@
+language: c
+install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y help2man make gcc zlib1g-dev libssl-dev rake texinfo flex dctrl-tools libsctp-dev libxslt1-dev libcap2-bin ed
+  - git config --global user.email 'dave@davedoesdev.com'
+  - git config --global user.name 'David Halls'
+script: couchdb/build_couchdb.sh
