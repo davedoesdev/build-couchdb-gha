@@ -5,7 +5,7 @@ install:
 - git config --global user.email 'dave@davedoesdev.com'
 - git config --global user.name 'David Halls'
 script: ./build_couchdb.sh
-before_deploy: tar -zcf build-couchdb.tar.gz build-couchdb
+before_deploy: tar -zcf build-couchdb.tar.gz build-couchdb/build
 deploy:
   provider: releases
   api_key:
