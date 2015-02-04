@@ -9,7 +9,7 @@ before_deploy: tar -zcf build-couchdb.tar.gz build-couchdb/build
 deploy:
   provider: releases
   api_key:
-    secure: TflmoffqBTzzQJW8Rz116tGSMX1ZdPlPkz7PH6VIXToPnTNrmsIpkU5S5Glv4o070hozLx5x787aMIB/WmpOb3KavRcsbKJVXEUK7BKCpMAD/lVesU/uLX3LFicIofu7d+B1ZmrYFX8JyPXx2CpK36vDlPy9AER4qmKmQHLkoQc=
+    secure: UMcd90RGzcS2jp5UmdYNsLS9cWxr2ZBSV/du/5xTbQQfEmicr74PFevpxrhOfJv0QCLdCBdA0hViGx1PeJJ3nW/nF0WqBnVBnyjlAYTwoXF01TukviC8bYdU2HKPKbrABv6Wnfo0oyazvUq4j6ZvMJUIUZ8PP3DJgSwYrjOE9oI=
   file: build-couchdb.tar.gz
   skip_cleanup: true
   on:
