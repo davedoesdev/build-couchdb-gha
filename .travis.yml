@@ -1,3 +1,4 @@
+sudo: false
 language: c
 install:
 - sudo apt-get update -qq
