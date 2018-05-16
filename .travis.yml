@@ -1,5 +1,9 @@
 sudo: false
 language: c
+python:
+  - 2.7
+node_js:
+  - 10
 addons:
   apt:
     sources:
@@ -7,9 +11,8 @@ addons:
         key_url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
     packages:
       - esl-erlang=1:20.3
-      - python-sphinx
 install:
-    - pip install sphinx_rtd_theme
+    - pip install sphinx sphinx_rtd_theme
 script: ./build_couchdb.sh
 before_deploy: tar -zcf couchdb.tar.gz couchdb/rel
 deploy:
