@@ -1,14 +1,14 @@
 #!/bin/bash
+curdir="$(cd "$(dirname "$0")"; echo $PWD)"
 set -e
-git clone git://github.com/zpetr/build-couchdb.git
-cd build-couchdb
-git checkout otp-fix
-git submodule init
-git submodule update
-( cd dependencies/couchdb; git checkout 1.6.1 )
-( cd dependencies/otp; git checkout OTP-17.5.6.9 )
-echo '@setfilename autoconf.info' > dependencies/autoconf-2.69/doc/autoconf.texi
-echo '@setfilename automake.info' > dependencies/automake-1.11.2/doc/automake.texi
-( cd dependencies/autoconf-archive; ed cfg.mk <<< $'g/@diff/d\nw'; git commit -a -m 'fix build' )
-git commit -a -m 'fix build'
-rake
+git clone https://github.com/apache/couchdb
+cd couchdb
+#git checkout 2.1.1
+wget -O - http://ftp.mozilla.org/pub/mozilla.org/js/js185-1.0.0.tar.gz | tar zx
+patch -p0 < "$curdir/js-1.8.5.patch"
+pushd js-1.8.5/js/src
+./configure
+make
+popd
+./configure
+make release ERL_CFLAGS="-I$PWD/js-1.8.5/js/src -I/usr/lib/erlang/usr/include" LIBRARY_PATH="$PWD/js-1.8.5/js/src/dist/lib"
