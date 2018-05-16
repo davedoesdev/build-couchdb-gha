@@ -8,6 +8,7 @@ addons:
     packages:
       - esl-erlang=1:20.3
       - python-sphinx
+      - python-sphinx-rtd-theme
 script: ./build_couchdb.sh
 before_deploy: tar -zcf couchdb.tar.gz couchdb/rel
 deploy:
