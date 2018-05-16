@@ -12,3 +12,4 @@ make
 popd
 ./configure
 make release ERL_CFLAGS="-I$PWD/js-1.8.5/js/src -I/usr/lib/erlang/usr/include" LIBRARY_PATH="$PWD/js-1.8.5/js/src/dist/lib"
+cp js-1.8.5/js/src/dist/lib/libmozjs185.so rel/couchdb/lib/libmozjs185.so.1.0
