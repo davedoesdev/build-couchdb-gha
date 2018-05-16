@@ -11,7 +11,6 @@ addons:
       - esl-erlang=1:20.3
 install:
     - pip install sphinx sphinx_rtd_theme
-    - node --version
 script: ./build_couchdb.sh
 before_deploy: tar -zcf couchdb.tar.gz couchdb/rel
 deploy:
