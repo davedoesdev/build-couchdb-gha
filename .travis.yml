@@ -10,13 +10,13 @@ addons:
     packages:
       - esl-erlang=1:20.3
 install:
-    - pip install sphinx sphinx_rtd_theme
-script: ./build_couchdb.sh
+  - pip install sphinx sphinx_rtd_theme
+script: "./build_couchdb.sh"
 before_deploy: tar -zcf couchdb.tar.gz couchdb/rel
 deploy:
   provider: releases
   api_key:
-    secure: UMcd90RGzcS2jp5UmdYNsLS9cWxr2ZBSV/du/5xTbQQfEmicr74PFevpxrhOfJv0QCLdCBdA0hViGx1PeJJ3nW/nF0WqBnVBnyjlAYTwoXF01TukviC8bYdU2HKPKbrABv6Wnfo0oyazvUq4j6ZvMJUIUZ8PP3DJgSwYrjOE9oI=
+    secure: VVJSH971P1KWIddqiff6vNRuJKTjGnUUsgl/Ox9Wp86ScFkK31JtDm9I5Kg/er8DVJqyfGaUKICn0ecS9RR0YhXvsL6wqMsfJxBmAlmdvv7xIFrygWbspFica0v15Y7x/StfBHInBiQcUki34KfFbRNyjbbWmB+LCXLftW70Ecw=
   file: couchdb.tar.gz
   skip_cleanup: true
   on:
