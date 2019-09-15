@@ -1,14 +1,14 @@
-sudo: false
+dist: bionic
 language: python
 python:
   - 2.7
 addons:
   apt:
     sources:
-      - sourceline: deb https://packages.erlang-solutions.com/ubuntu trusty contrib
+      - sourceline: deb https://packages.erlang-solutions.com/ubuntu bionic contrib
         key_url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
     packages:
-      - esl-erlang=1:20.3
+      - esl-erlang=1:22.0.7
 install:
   - pip install sphinx sphinx_rtd_theme
 script: "./build_couchdb.sh"
