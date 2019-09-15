@@ -12,11 +12,11 @@ addons:
 install:
   - pip install sphinx sphinx_rtd_theme
 script: "./build_couchdb.sh"
-before_deploy: tar -zcf couchdb.tar.gz couchdb/rel
+before_deploy:
+  - tar -zcf couchdb.tar.gz couchdb/rel
+  - $(npm bin)/set-up-ssh --key "$encrypted_XXXXXXXXXXXX_key" --iv "$encrypted_XXXXXXXXXXXX_iv" --path-encrypted-key "travis_key.enc"
 deploy:
   provider: releases
-  api_key:
-    secure: VVJSH971P1KWIddqiff6vNRuJKTjGnUUsgl/Ox9Wp86ScFkK31JtDm9I5Kg/er8DVJqyfGaUKICn0ecS9RR0YhXvsL6wqMsfJxBmAlmdvv7xIFrygWbspFica0v15Y7x/StfBHInBiQcUki34KfFbRNyjbbWmB+LCXLftW70Ecw=
   file: couchdb.tar.gz
   skip_cleanup: true
   on:
