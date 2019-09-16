@@ -14,9 +14,10 @@ install:
 script: "./build_couchdb.sh"
 before_deploy:
   - tar -zcf couchdb.tar.gz couchdb/rel
-  - $(npm bin)/set-up-ssh --key "$encrypted_XXXXXXXXXXXX_key" --iv "$encrypted_XXXXXXXXXXXX_iv" --path-encrypted-key "travis_key.enc"
 deploy:
   provider: releases
+  api_key:
+    secure: T/n9PIfOj5JkkymnlzumyppVVbRPBKh04TxSRezcg9+putoX9aIRAixqh058IOD1xlxpizc4x1qM3O5gTb2Ysvw7CjXTDW/0psSEFejq+eGu6KOZr0PqHYwg0kAiaJleHdB6I7BGmAJ5xJoXG/++fRgH0Y8MY6YkJ7KSx0lfsU8=
   file: couchdb.tar.gz
   skip_cleanup: true
   on:
