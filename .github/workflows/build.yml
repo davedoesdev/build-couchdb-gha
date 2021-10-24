@@ -10,5 +10,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Update APT
+        run: sudo apt update
+
+      - name: Install dependencies
+        run: sudo apt install python3-sphinx
+
       - name: Build CouchDB
         run: ./build_couchdb.sh
