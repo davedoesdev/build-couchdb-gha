@@ -1,0 +1,11 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build CouchDB
+        run: ./build_couchdb.sh
