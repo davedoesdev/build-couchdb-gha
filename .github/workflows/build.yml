@@ -19,8 +19,13 @@ jobs:
       - name: Build CouchDB
         run: ./build_couchdb.sh
 
+      - name: Prepare artifacts
+        run: |
+          mkdir artifacts
+          mv couchdb/rel artifacts/couchdb
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: couchdb
-          path: couchdb/rel
+          path: artifacts
