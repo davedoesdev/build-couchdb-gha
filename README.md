@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/davedoesdev/build-couchdb-travis.png)](https://travis-ci.org/davedoesdev/build-couchdb-travis)
+[![Build Status](https://github.com/davedoesdev/build-couchdb-gha/actions/workflows/build.yml/badge.svg)](https://github.com/davedoesdev/build-couchdb-gha/actions)
