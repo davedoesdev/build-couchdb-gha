@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Check Sphinx version
+        run: sphinx-build --version
+
       - name: Build CouchDB
         run: ./build_couchdb.sh
 
