@@ -16,6 +16,11 @@ jobs:
       - name: Install dependencies
         run: sudo apt install python3-sphinx python3-sphinx-rtd-theme
 
+      - name: Set OTP
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: 24.3.4
+
       - name: Build CouchDB
         run: ./build_couchdb.sh
 
