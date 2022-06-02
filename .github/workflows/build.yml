@@ -21,6 +21,11 @@ jobs:
         with:
           otp-version: 24.3.4
 
+      - name: Set Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
       - name: Build CouchDB
         run: ./build_couchdb.sh
 
