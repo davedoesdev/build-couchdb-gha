@@ -197,7 +197,7 @@ index 5dbc990..4f4e0e4 100644
  *Example of a query using the counts facet syntax:*
  
 -.. code-block:: http
-+.. code-block::
++.. code-block:: default
  
      ?q=*:*&counts=["type"]
  
@@ -206,7 +206,7 @@ index 5dbc990..4f4e0e4 100644
  *Example of a request that uses faceted search for matching ranges:*
  
 -.. code-block:: http
-+.. code-block::
++.. code-block:: default
  
      ?q=*:*&ranges={"price":{"cheap":"[0 TO 100]","expensive":"{100 TO Infinity}"}}
  
