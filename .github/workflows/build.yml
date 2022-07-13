@@ -21,6 +21,11 @@ jobs:
         with:
           otp-version: 24.3.4
 
+      - name: where is include dir 
+        run: |
+          export
+          locate eurl_nif.h
+
       - name: Set Node
         uses: actions/setup-node@v2
         with:
