@@ -24,7 +24,7 @@ jobs:
       - name: where is include dir 
         run: |
           export
-          locate eurl_nif.h
+          sudo find / -name erl_nif.h
 
       - name: Set Node
         uses: actions/setup-node@v2
