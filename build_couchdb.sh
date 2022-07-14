@@ -12,5 +12,5 @@ make
 popd
 ./configure
 patch -p1 -d src/docs < "$curdir/couchdb-documentation.patch"
-NODE_OPTIONS=--openssl-legacy-provider make release ERL_CFLAGS="-I$PWD/js-1.8.5/js/src -I${INSTALL_DIR_FOR_OTP:-/usr/lib/erlang/usr/include}" LIBRARY_PATH="$PWD/js-1.8.5/js/src/dist/lib"
+NODE_OPTIONS=--openssl-legacy-provider make release ERL_CFLAGS="-I$PWD/js-1.8.5/js/src -I${INSTALL_DIR_FOR_OTP:-/usr/lib/erlang}/usr/include" LIBRARY_PATH="$PWD/js-1.8.5/js/src/dist/lib"
 cp js-1.8.5/js/src/dist/lib/libmozjs185.so rel/couchdb/lib/libmozjs185.so.1.0
