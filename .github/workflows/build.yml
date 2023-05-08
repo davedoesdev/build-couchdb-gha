@@ -4,11 +4,11 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Update APT
         run: sudo apt update
@@ -17,14 +17,14 @@ jobs:
         run: sudo apt install python3-sphinx python3-sphinx-rtd-theme python2
 
       - name: Set OTP
-        uses: erlef/setup-beam@caa49b06584b5d1827ac6767470ed43aa150e9bb
+        uses: erlef/setup-beam@v1
         with:
-          otp-version: 24.3.4
+          otp-version: 25.2
 
       - name: Set Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Build CouchDB
         run: ./build_couchdb.sh
@@ -35,7 +35,7 @@ jobs:
           mv couchdb/rel artifacts/couchdb
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: couchdb
           path: artifacts
