@@ -1,16 +1,7 @@
 #!/bin/bash
-curdir="$(cd "$(dirname "$0")"; echo $PWD)"
 set -e
 git clone https://github.com/apache/couchdb
 cd couchdb
-git checkout 3.2.2
-wget -O - http://ftp.mozilla.org/pub/mozilla.org/js/js185-1.0.0.tar.gz | tar zx
-patch -p0 < "$curdir/js-1.8.5.patch"
-pushd js-1.8.5/js/src
-./configure
-make
-popd
-./configure
-patch -p1 -d src/docs < "$curdir/couchdb-documentation.patch"
-NODE_OPTIONS=--openssl-legacy-provider make release ERL_CFLAGS="-I$PWD/js-1.8.5/js/src -I${INSTALL_DIR_FOR_OTP:-/usr/lib/erlang}/usr/include" LIBRARY_PATH="$PWD/js-1.8.5/js/src/dist/lib"
-cp js-1.8.5/js/src/dist/lib/libmozjs185.so rel/couchdb/lib/libmozjs185.so.1.0
+git checkout 3.3.2
+./configure --spidermonkey-version 78
+make release
