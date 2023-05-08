@@ -14,7 +14,7 @@ jobs:
         run: sudo apt update
 
       - name: Install dependencies
-        run: sudo apt install python3-sphinx python3-sphinx-rtd-theme python2
+        run: sudo apt install libmozjs-78-dev
 
       - name: Set OTP
         uses: erlef/setup-beam@v1
